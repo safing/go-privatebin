@@ -43,7 +43,7 @@ jobs:
           formula_class: Privatebin
           formula_file: privatebin
           description: PrivateBin CLI written in Golang
-          url: https://github.com/fopina/privatebin/releases/download/v${{ steps.prepare.outputs.tag_name }}/pbin_darwin_x86_64.tar.gz
+          url: https://github.com/safing/go-privatebin/releases/download/v${{ steps.prepare.outputs.tag_name }}/pbin_darwin_x86_64.tar.gz
           license: ''
           version: '${{ steps.prepare.outputs.tag_name }}'
           bin: pbin

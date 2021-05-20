@@ -1,4 +1,4 @@
-module github.com/fopina/privatebin
+module github.com/safing/go-privatebin
 
 go 1.13
 

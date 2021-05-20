@@ -76,8 +76,6 @@ pids
 # Project Files
 /.env
 /.logs
-/privatebin
-/privatebin.exe
 
 # Log Files
 /logs

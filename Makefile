@@ -1,4 +1,4 @@
-SRC_PATH = "github.com/fopina/privatebin"
+SRC_PATH = "github.com/safing/go-privatebin"
 OUTPUT_FILE = pbin
 
 VERSION ?= DEV
@@ -23,7 +23,7 @@ clean:
 
 build:
 	@mkdir -p dist
-	@CGO_ENABLED=0 go build -o dist/$(OUTPUT_FILE) main.go
+	@CGO_ENABLED=0 go build -o dist/$(OUTPUT_FILE) ./cmds/privatebin
 
 gorelease:
 	@VERSION=$(VERSION) docker run --rm --privileged \
