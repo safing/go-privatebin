@@ -133,6 +133,10 @@ func (cli *Client) PasteWithAttachment(ctx context.Context, expiration types.Exp
 		return "", fmt.Errorf("failed to decode response: %w", err)
 	}
 
+	if pasteResponse.Status != 0 {
+		return "", fmt.Errorf("failed to create paste: %s (%d)", pasteResponse.ErrorMessage, pasteResponse.Status)
+	}
+
 	// generate the access URL
 	return fmt.Sprintf(
 		"%s%s#%s",

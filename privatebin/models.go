@@ -19,6 +19,10 @@ type PasteResponse struct {
 	ID          string `json:"id"`
 	URL         string `json:"url"`
 	DeleteToken string `json:"deletetoken"`
+
+	// ErrorMessage holds an error message. This is only set
+	// if Status == 1.
+	ErrorMessage string `json:"message"`
 }
 
 // PasteContent .
@@ -57,14 +61,19 @@ func (spec *PasteSpec) SpecArray() []interface{} {
 // PasteData .
 type PasteData struct {
 	*PasteSpec
-	Data []byte
+	Data   []byte
+	Format string
 }
 
 // adata .
 func (paste *PasteData) GetAData() []interface{} {
+	format := paste.Format
+	if format == "" {
+		format = "plaintext"
+	}
 	return []interface{}{
 		paste.SpecArray(),
-		"plaintext",
+		format,
 		0,
 		0,
 	}
